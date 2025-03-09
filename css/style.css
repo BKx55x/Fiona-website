@@ -1,4 +1,18 @@
-/* Base styles */
+/* Variables for easy customization */
+:root {
+    --primary-color: #d8b4a0; /* Soft terracotta */
+    --secondary-color: #86a397; /* Sage green */
+    --accent-color: #d4a373; /* Warm amber */
+    --text-color: #3d3d3d;
+    --light-color: #f5f5f5;
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'Montserrat', sans-serif;
+}
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,32 +20,50 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--body-font);
+    color: var(--text-color);
     line-height: 1.6;
-    color: #333;
+    background-color: var(--light-color);
 }
 
-/* Navigation */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Header and Navigation */
 header {
+    background-color: rgba(255, 255, 255, 0.95);
     position: fixed;
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    padding: 1.5rem 5%;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
 nav ul {
@@ -40,75 +72,91 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 30px;
+    margin-left: 2rem;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: #333;
     font-weight: 500;
-    transition: color 0.3s;
+    padding: 0.5rem;
+    position: relative;
 }
 
-nav ul li a:hover {
-    color: #9d7a5a;
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
 }
 
-/* Hero section */
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
 .hero {
     height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5f3f0;
     text-align: center;
-    padding: 0 20px;
+    color: white;
+    padding-top: 4rem;
 }
 
-.hero-content h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-    color: #333;
+.hero-content {
+    max-width: 800px;
+    padding: 0 2rem;
 }
 
-.hero-content h2 {
-    font-size: 24px;
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero h2 {
+    font-size: 2rem;
     font-weight: 400;
-    margin-bottom: 20px;
-    color: #666;
+    margin-bottom: 1.5rem;
 }
 
-.hero-content p {
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto;
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
 }
 
-/* Portfolio section */
+/* Portfolio Section */
 .portfolio {
-    padding: 100px 20px;
-    max-width: 1200px;
+    padding: 5rem 5%;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .portfolio h2 {
     text-align: center;
-    margin-bottom: 50px;
-    font-size: 32px;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
 }
 
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 2rem;
 }
 
 .project {
-    background: #fff;
-    border-radius: 5px;
+    background-color: white;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .project:hover {
@@ -122,32 +170,34 @@ nav ul li a:hover {
 }
 
 .project h3 {
-    padding: 20px 20px 10px;
-    font-size: 20px;
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-size: 1.4rem;
+    color: var(--secondary-color);
 }
 
 .project p {
-    padding: 0 20px 20px;
-    color: #666;
+    padding: 0 1.5rem 1.5rem;
 }
 
-/* About section */
+/* About Section */
 .about {
-    background-color: #f5f3f0;
-    padding: 100px 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 5rem 5%;
 }
 
 .about h2 {
     text-align: center;
-    margin-bottom: 50px;
-    font-size: 32px;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .about-content {
     display: flex;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
-    gap: 50px;
+    gap: 3rem;
+    align-items: center;
 }
 
 .about-image {
@@ -156,82 +206,97 @@ nav ul li a:hover {
 
 .about-image img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .about-text {
-    flex: 2;
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
-/* Contact section */
+/* Contact Section */
 .contact {
-    padding: 100px 20px;
+    padding: 5rem 5%;
     max-width: 800px;
     margin: 0 auto;
 }
 
 .contact h2 {
     text-align: center;
-    margin-bottom: 50px;
-    font-size: 32px;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    gap: 1.5rem;
 }
 
 input, textarea {
-    margin-bottom: 20px;
-    padding: 15px;
+    padding: 1rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 4px;
+    font-family: var(--body-font);
+    font-size: 1rem;
 }
 
 textarea {
     min-height: 150px;
-    resize: vertical;
 }
 
 button {
-    background: #9d7a5a;
+    background-color: var(--accent-color);
     color: white;
     border: none;
-    padding: 15px;
-    font-size: 16px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background: #7d5a3a;
+    background-color: var(--primary-color);
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 30px;
-    background: #333;
+    background-color: var(--text-color);
     color: white;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
     .about-content {
         flex-direction: column;
     }
     
     nav {
         flex-direction: column;
+        padding: 1rem;
     }
     
     nav ul {
-        margin-top: 20px;
+        margin-top: 1rem;
     }
     
     nav ul li {
-        margin: 0 15px;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 }
