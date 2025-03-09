@@ -19,21 +19,13 @@
     
     --text-color: #3d3d3d;
     --light-color: var(--bg-cream); /* Updated to use the new background color */
-    --heading-font: 'Eyesome Script', 'Playfair Display', serif;
+    --heading-font: 'Allura', 'Playfair Display', serif;
     --body-font: 'Montserrat', sans-serif;
 }
 
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-/* Eyesome Script Font */
-@font-face {
-    font-family: 'Eyesome Script';
-    src: url('../fonts/eyesome-script.woff2') format('woff2'),
-         url('../fonts/eyesome-script.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 /* Reset and Base Styles */
 * {
