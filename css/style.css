@@ -179,6 +179,136 @@ nav ul li a:hover::after {
     padding: 0 1.5rem 1.5rem;
 }
 
+/* Project Carousel Styling */
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    padding: 0 20px;
+}
+
+.project-showcase {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-images {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+.project-images img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.project-images img.active {
+    opacity: 1;
+}
+
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.prev-image, .next-image, .prev-project, .next-project {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.prev-image:hover, .next-image:hover, .prev-project:hover, .next-project:hover {
+    background-color: var(--primary-color);
+}
+
+.image-indicators, .project-indicators {
+    display: flex;
+    gap: 8px;
+}
+
+.image-indicators span, .project-indicators span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.image-indicators span.active, .project-indicators span.active {
+    background-color: var(--accent-color);
+}
+
+.project-info {
+    padding: 30px;
+}
+
+.project-info h3 {
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+.project-info p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.prev-project, .next-project {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .project-images {
+        height: 350px;
+    }
+}
+
 /* About Section */
 .about {
     background-color: var(--secondary-color);
