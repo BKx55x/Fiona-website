@@ -16,31 +16,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission handling
+    // Form submission handling with Formspree
     const contactForm = document.querySelector('form');
     
     if (contactForm) {
+        // We'll add a success message display
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // No need to prevent default since we want the form to submit to Formspree
             
-            // Here you would typically send the form data to a server
-            // For now, just show a success message
-            
-            const formFields = this.querySelectorAll('input, textarea');
-            let isValid = true;
-            
-            formFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                }
-            });
-            
-            if (isValid) {
-                alert('Thank you for your message! I will get back to you soon.');
-                this.reset();
-            } else {
-                alert('Please fill out all fields.');
+            // Optional: You can add loading state or other visual feedback here
+            const submitButton = this.querySelector('button[type="submit"]');
+            if (submitButton) {
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
             }
+            
+            // Form will be handled by Formspree automatically
+            // This function just handles UI feedback
+            
+            // Note: This setTimeout is just to simulate processing time
+            // You can remove it in production as Formspree will handle the redirect
+            setTimeout(() => {
+                if (submitButton) {
+                    submitButton.textContent = 'Send';
+                    submitButton.disabled = false;
+                }
+            }, 2000);
         });
     }
 });
