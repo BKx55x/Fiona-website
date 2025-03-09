@@ -263,6 +263,106 @@ button:hover {
     background-color: var(--primary-color);
 }
 
+
+/* Resume Section */
+.resume {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.resume h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.resume-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.resume-section {
+    margin-bottom: 2rem;
+}
+
+.resume-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+.resume-item {
+    margin-bottom: 1.5rem;
+}
+
+.resume-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.resume-item .institution {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.resume-item .years {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    list-style: none;
+}
+
+.skills-list li {
+    background-color: var(--light-color);
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    border-left: 3px solid var(--accent-color);
+}
+
+.resume-download {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.download-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: var(--primary-color);
+}
+
+/* Make resume section responsive */
+@media (max-width: 768px) {
+    .resume-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Footer */
 footer {
     background-color: var(--text-color);
