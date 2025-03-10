@@ -1,107 +1,99 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('New carousel script loaded');
+    console.log('Simple carousel script loaded');
     
-    // Simple test to verify script is running
-    const testDiv = document.createElement('div');
-    testDiv.style.position = 'fixed';
-    testDiv.style.bottom = '10px';
-    testDiv.style.right = '10px';
-    testDiv.style.background = 'red';
-    testDiv.style.color = 'white';
-    testDiv.style.padding = '5px';
-    testDiv.style.zIndex = '9999';
-    testDiv.innerHTML = 'JS Running';
-    document.body.appendChild(testDiv);
+    // Get all carousel items
+    const projects = document.querySelectorAll('.carousel-item');
     
-    // Basic carousel functionality
-    function setupCarousels() {
-        const carousels = document.querySelectorAll('.project-showcase');
-        console.log('Found carousels:', carousels.length);
+    projects.forEach(function(project) {
+        // Find elements for this project
+        const images = project.querySelectorAll('.project-images img');
+        const prevBtn = project.querySelector('.prev-image');
+        const nextBtn = project.querySelector('.next-image');
+        const dots = project.querySelectorAll('.image-indicators span');
         
-        if (carousels.length === 0) {
-            console.log('No carousels found on page');
-            return;
-        }
+        console.log('Project elements:', {
+            images: images.length,
+            hasPrevBtn: !!prevBtn,
+            hasNextBtn: !!nextBtn,
+            dots: dots.length
+        });
         
-        carousels.forEach(function(carousel) {
-            const images = carousel.querySelectorAll('.project-images img');
-            const prevBtn = carousel.querySelector('.prev-image');
-            const nextBtn = carousel.querySelector('.next-image');
-            const dots = carousel.querySelectorAll('.image-indicators span');
+        // Set initial state - make first image visible
+        if (images.length > 0) {
+            // First, hide all images
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.display = 'none';
+            }
             
-            console.log('Carousel elements:', {
-                images: images.length,
-                prevBtn: prevBtn !== null,
-                nextBtn: nextBtn !== null,
-                dots: dots.length
-            });
+            // Show the first image
+            images[0].style.display = 'block';
             
-            // Set initial state
-            if (images.length > 0) {
-                // Hide all images first
-                images.forEach(img => img.style.display = 'none');
-                // Show first image
-                images[0].style.display = 'block';
-                
-                // Update dots
-                if (dots.length > 0) {
-                    dots.forEach(dot => dot.classList.remove('active'));
-                    dots[0].classList.add('active');
-                }
-                
-                let currentIndex = 0;
-                
-                // Add click handlers
-                if (prevBtn) {
-                    prevBtn.addEventListener('click', function() {
-                        console.log('Prev clicked');
-                        currentIndex--;
-                        if (currentIndex < 0) currentIndex = images.length - 1;
-                        updateCarousel();
-                    });
-                }
-                
-                if (nextBtn) {
-                    nextBtn.addEventListener('click', function() {
-                        console.log('Next clicked');
-                        currentIndex++;
-                        if (currentIndex >= images.length) currentIndex = 0;
-                        updateCarousel();
-                    });
-                }
-                
-                // Add dot handlers
-                dots.forEach(function(dot, i) {
-                    dot.addEventListener('click', function() {
-                        currentIndex = i;
-                        updateCarousel();
-                    });
-                });
-                
-                // Function to update display
-                function updateCarousel() {
-                    // Hide all images
-                    images.forEach(img => img.style.display = 'none');
-                    // Show current image
-                    images[currentIndex].style.display = 'block';
-                    
-                    // Update dots
-                    if (dots.length > 0) {
-                        dots.forEach(dot => dot.classList.remove('active'));
-                        dots[currentIndex].classList.add('active');
+            // Set first dot as active
+            if (dots.length > 0) {
+                dots[0].classList.add('active');
+            }
+            
+            let currentIndex = 0;
+            
+            // Function to show a specific image
+            function showImage(index) {
+                // Hide all images
+                for (let i = 0; i < images.length; i++) {
+                    images[i].style.display = 'none';
+                    if (dots.length > i) {
+                        dots[i].classList.remove('active');
                     }
                 }
                 
-                // Auto advance
-                setInterval(function() {
-                    currentIndex++;
-                    if (currentIndex >= images.length) currentIndex = 0;
-                    updateCarousel();
-                }, 5000);
+                // Show selected image and activate dot
+                images[index].style.display = 'block';
+                if (dots.length > index) {
+                    dots[index].classList.add('active');
+                }
+                
+                currentIndex = index;
             }
-        });
-    }
-    
-    // Run setup
-    setupCarousels();
+            
+            // Previous button
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    let newIndex = currentIndex - 1;
+                    if (newIndex < 0) newIndex = images.length - 1;
+                    showImage(newIndex);
+                    console.log('Prev clicked, showing image', newIndex);
+                });
+            }
+            
+            // Next button
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    let newIndex = currentIndex + 1;
+                    if (newIndex >= images.length) newIndex = 0;
+                    showImage(newIndex);
+                    console.log('Next clicked, showing image', newIndex);
+                });
+            }
+            
+            // Indicator dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showImage(i);
+                    console.log('Dot clicked, showing image', i);
+                });
+            }
+            
+            // Auto rotation
+            setInterval(function() {
+                let newIndex = currentIndex + 1;
+                if (newIndex >= images.length) newIndex = 0;
+                showImage(newIndex);
+            }, 5000);
+        }
+    });
 });
