@@ -1,20 +1,25 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
+// If you prefer to use navLinks instead of anchorLinks:
+const navLinks = document.querySelectorAll('a[href^="#"]');
+
+navLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        // This check prevents the null reference error
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            const targetPosition = targetElement.offsetTop;
             window.scrollTo({
-                top: targetSection.offsetTop - 80,
+                top: targetPosition,
                 behavior: 'smooth'
             });
-        });
+        } else {
+            console.warn('Target element not found:', targetId);
+        }
     });
+});
     
     // Form submission handling with Formspree
     const contactForm = document.querySelector('form');
