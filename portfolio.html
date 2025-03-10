@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Fiona Amber Design</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Copy your header/navigation from index.html here -->
+    
+    <main>
+        <section id="portfolio" class="portfolio">
+            <h2>Complete Portfolio</h2>
+            
+            <!-- Vivid Simplicit Project -->
+            <div class="portfolio-item">
+                <h3>Vivid Simplicit</h3>
+                <p>Modern workspace design with clean lines and vibrant details.</p>
+                <div class="portfolio-grid">
+                    <div class="portfolio-image">
+                        <img src="images/vivid-simplicit/Enscape_Main.png" alt="Vivid Simplicit Main" onclick="openLightbox('vivid-simplicit', 0)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/vivid-simplicit/Enscape_Cubicles.png" alt="Vivid Simplicit Cubicles" onclick="openLightbox('vivid-simplicit', 1)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/vivid-simplicit/Enscape_Coffe_bar_1.png" alt="Vivid Simplicit Coffee Bar" onclick="openLightbox('vivid-simplicit', 2)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/vivid-simplicit/Enscape_Offset_Main.png" alt="Vivid Simplicit Offset Main" onclick="openLightbox('vivid-simplicit', 3)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/vivid-simplicit/Enscape_Coffee_Bar_Front.png" alt="Vivid Simplicit Coffee Bar Front" onclick="openLightbox('vivid-simplicit', 4)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/vivid-simplicit/Enscape_Coffee_Bar_Side.png" alt="Vivid Simplicit Coffee Bar Side" onclick="openLightbox('vivid-simplicit', 5)">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Refined Sanctuary Project -->
+            <div class="portfolio-item">
+                <h3>Refined Sanctuary</h3>
+                <p>Elegant residential design with a focus on comfort and sophistication.</p>
+                <div class="portfolio-grid">
+                    <div class="portfolio-image">
+                        <img src="images/refined-sanctuary/Front_Full.png" alt="Refined Sanctuary Front View" onclick="openLightbox('refined-sanctuary', 0)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/refined-sanctuary/Front_Bold.png" alt="Refined Sanctuary Bold Front" onclick="openLightbox('refined-sanctuary', 1)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/refined-sanctuary/Lower_Front_Approach.png" alt="Refined Sanctuary Approach" onclick="openLightbox('refined-sanctuary', 2)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/refined-sanctuary/Offset_Left.png" alt="Refined Sanctuary Offset Left" onclick="openLightbox('refined-sanctuary', 3)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/refined-sanctuary/Side_Patio.png" alt="Refined Sanctuary Side Patio" onclick="openLightbox('refined-sanctuary', 4)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/refined-sanctuary/Side_Balcony_Patio.png" alt="Refined Sanctuary Balcony" onclick="openLightbox('refined-sanctuary', 5)">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tatli Tea Room Project -->
+            <div class="portfolio-item">
+                <h3>Tatli Tea Room</h3>
+                <p>Inviting tea room concept with warm tones and comfortable seating areas.</p>
+                <div class="portfolio-grid">
+                    <div class="portfolio-image">
+                        <img src="images/tatli-tea-room/Tatli_Sitting_Room.png" alt="Tatli Tea Room Sitting Area" onclick="openLightbox('tatli-tea-room', 0)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/tatli-tea-room/Tatli_Banquets.png" alt="Tatli Tea Room Banquets" onclick="openLightbox('tatli-tea-room', 1)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/tatli-tea-room/Tatli_Dessert_Bar.png" alt="Tatli Tea Room Dessert Bar" onclick="openLightbox('tatli-tea-room', 2)">
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="images/tatli-tea-room/Tatli_Enclave.png" alt="Tatli Tea Room Enclave" onclick="openLightbox('tatli-tea-room', 3)">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Lightbox for enlarged images -->
+        <div id="lightbox" class="lightbox">
+            <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+            <div class="lightbox-content">
+                <div class="lightbox-navigation">
+                    <button class="prev-lightbox" onclick="changeLightboxImage(-1)">&lt;</button>
+                    <div class="lightbox-image-container">
+                        <img id="lightbox-image" src="">
+                    </div>
+                    <button class="next-lightbox" onclick="changeLightboxImage(1)">&gt;</button>
+                </div>
+                <div id="lightbox-caption"></div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Copy your footer from index.html here -->
+    
+    <script src="js/portfolio.js"></script>
+</body>
+</html>
