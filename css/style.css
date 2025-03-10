@@ -1,3 +1,6 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 /* Variables for easy customization */
 :root {
     /* Updated color palette based on provided accent colors */
@@ -22,9 +25,6 @@
     --heading-font: 'Allura', 'Playfair Display', serif;
     --body-font: 'Montserrat', sans-serif;
 }
-
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 
 /* Reset and Base Styles */
