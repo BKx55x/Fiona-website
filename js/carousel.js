@@ -124,6 +124,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Remove debug lines after verifying everything works
 });
