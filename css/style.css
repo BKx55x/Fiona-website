@@ -7,7 +7,7 @@
     --primary-color: #e8d1c5; /* Blush */
     --secondary-color: #aebfbe; /* Sage */
     --accent-color: #dea5b6; /* Pink */
-    
+
     /* Additional accent colors */
     --accent-beige: #e8e1d9;
     --accent-mauve: #b9a6b3;
@@ -15,11 +15,11 @@
     --accent-light-sage: #bcbfaa;
     --accent-slate: #414a4c;
     --accent-burgundy: #4a1431;
-    
+
     /* Background colors */
     --bg-cream: #fffcf5;
     --bg-light-beige: #f5f1ec;
-    
+
     --text-color: #3d3d3d;
     --light-color: var(--bg-cream); /* Updated to use the new background color */
     --heading-font: 'Allura', 'Playfair Display', serif;
@@ -373,13 +373,6 @@ nav ul li a:hover::after {
     margin: 0 auto;
 }
 
-.contact h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--accent-burgundy);
-}
-
 form {
     display: grid;
     gap: 1.5rem;
@@ -401,7 +394,6 @@ textarea {
 button {
     background-color: var(--accent-mauve);
     color: white;
-    border: none;
     padding: 1rem;
     font-size: 1rem;
     font-weight: 600;
@@ -413,7 +405,6 @@ button {
 button:hover {
     background-color: var(--accent-burgundy);
 }
-
 
 /* Resume Section */
 .resume {
@@ -508,7 +499,7 @@ button:hover {
     .resume-content {
         grid-template-columns: 1fr;
     }
-    
+
     .skills-list {
         grid-template-columns: 1fr;
     }
@@ -528,24 +519,24 @@ footer {
     .hero h1 {
         font-size: 3rem;
     }
-    
+
     .hero h2 {
         font-size: 1.5rem;
     }
-    
+
     .about-content {
         flex-direction: column;
     }
-    
+
     nav {
         flex-direction: column;
         padding: 1rem;
     }
-    
+
     nav ul {
         margin-top: 1rem;
     }
-    
+
     nav ul li {
         margin-left: 1rem;
         margin-right: 1rem;
@@ -689,7 +680,7 @@ footer {
     .portfolio-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
-    
+
     .lightbox-image-container {
         max-width: 90vw;
     }
